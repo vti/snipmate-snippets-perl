@@ -73,7 +73,7 @@ snippet p
 	sub new {
 		my $class = shift;
 
-		my $self = {@_};
+		my $self = {};
 		bless $self, $class;
 
 		return $self;
@@ -84,31 +84,22 @@ snippet p
 	1;
 # Test
 snippet t
-	package ${1:ClassName}Test;
-
 	use strict;
 	use warnings;
 
-	use base 'TestBase';
-
 	use Test::More;
-	use Test::Fatal;
 
-	use ${2};
-	
-	sub should_${3} : Test {
-		my $self = shift;
+	subtest '${1}' => sub {
+		${2}
+	};
 
-		${4}
-	}
-
-	1;
+	done_testing;
 # Constructor
 snippet n
 	sub new {
 		my $class = shift;
 
-		my $self = {@_};
+		my $self = {};
 		bless $self, $class;
 
 		return $self;
