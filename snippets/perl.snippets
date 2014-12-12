@@ -1,12 +1,3 @@
-# #!/usr/bin/perl
-snippet #!
-	#!/usr/bin/perl
-
-# Function
-snippet sub
-	sub ${1:function_name} {
-		${2:#body ...}
-	}
 # Method
 snippet m
 	sub ${1:method_name} {
@@ -17,38 +8,7 @@ snippet m
 
 		return $self;
 	}
-# Getter
-snippet get
-	sub get_${1:name} {
-		my $self = shift;
-		my ($$1) = @_;
-
-		return $self->{$1};
-	}
-
-	${2}
-# Setter
-snippet set
-	sub set_${1:name} {
-		my $self = shift;
-		my ($value) = @_;
-
-		$self->{$1} = $value;
-
-		return $self;
-	}
-
-	${2}
 # Try/Except
-snippet eval
-	eval {
-		${1:# do something risky...}
-	} || do {
-		my $e = $@;
-		
-		${2:# handle failure...}
-	}
-# Try::Tiny;
 snippet try
 	try {
 		${1:# do something risky...}
@@ -104,10 +64,6 @@ snippet n
 
 		return $self;
 	}
-# Read File
-snippet slurp
-	do { local $/; open my $fh, '<', $${1:file} or die $!; <$fh> };
-	${2}
 # Dumper
 snippet dump
 	use Data::Dumper; warn Dumper(${1:var});
